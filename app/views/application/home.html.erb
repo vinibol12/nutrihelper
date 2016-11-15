@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-lg-3">
   </div>
-  <%= button_to 'Clients', users_path, method: :get, class: 'btn btn-success btn-lg col-lg-6', style: "width: 500px%" %>
+  <%= button_to 'All Patients ', users_path, method: :get, class: 'btn btn-success btn-lg col-lg-6'%>
   <div class="col-lg-3">
   </div>
 </div>
@@ -13,8 +13,8 @@
 <div class="row">
   <div class="col-lg-3">
   </div>
-  <div class="btn btn-success btn-lg col-lg-6" style="width: 500px%">
-    Nova Consulta
+  <div >
+    <%= button_to 'New Appointment', new_appointment_path, method: :get, class: 'btn btn-success btn-lg col-lg-6'%>
   </div>
   <div class="col-lg-3">
   </div>
@@ -23,7 +23,7 @@
 <div class="row">
   <div class="col-lg-3">
   </div>
-  <div class="btn btn-success btn-lg col-lg-6" style="width: 500px%">
+  <div class="btn btn-success btn-lg col-lg-6">
     Enviar questionario
   </div>
   <div class="col-lg-3">

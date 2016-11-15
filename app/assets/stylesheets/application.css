@@ -14,6 +14,10 @@
  *= require_tree .
  *= require_self
  */
+body {
+    background-color: #dff0d8;
+    font-size: 18px;
+}
 
 .home  {
     background-image: url(eatright.png);
