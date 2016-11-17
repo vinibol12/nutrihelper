@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115051351) do
+ActiveRecord::Schema.define(version: 20161117060546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "anthropometric_evaluations", force: :cascade do |t|
+    t.integer  "appointment_id", null: false
+    t.integer  "patient_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["appointment_id"], name: "index_anthropometric_evaluations_on_appointment_id", using: :btree
+    t.index ["patient_id"], name: "index_anthropometric_evaluations_on_patient_id", using: :btree
+  end
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -22,9 +31,56 @@ ActiveRecord::Schema.define(version: 20161115051351) do
     t.index ["user_id"], name: "index_appointments_on_user_id", using: :btree
   end
 
+  create_table "bmi_measurements", force: :cascade do |t|
+    t.integer  "anthropometric_evaluation_id", null: false
+    t.float    "weight"
+    t.integer  "height"
+    t.float    "bmi"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["anthropometric_evaluation_id"], name: "index_bmi_measurements_on_anthropometric_evaluation_id", using: :btree
+  end
+
+  create_table "body_compositions", force: :cascade do |t|
+    t.integer  "atropometric_evaluation_id", null: false
+    t.decimal  "fat_percentage"
+    t.float    "fat_mass"
+    t.float    "lean_mass"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["atropometric_evaluation_id"], name: "index_body_compositions_on_atropometric_evaluation_id", using: :btree
+  end
+
   create_table "cards", id: false, force: :cascade do |t|
     t.string "visa"
     t.string "master"
+  end
+
+  create_table "circumference_measurements", force: :cascade do |t|
+    t.integer  "anthropometric_evaluation_id", null: false
+    t.integer  "abdomen"
+    t.integer  "waist"
+    t.integer  "hip"
+    t.integer  "arm"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["anthropometric_evaluation_id"], name: "index_circumference_on_anthropometric_evaluation_id", using: :btree
+  end
+
+  create_table "skin_fold_measurements", force: :cascade do |t|
+    t.integer  "anthropometric_evaluation_id", null: false
+    t.integer  "triceps"
+    t.integer  "subscapular"
+    t.integer  "thigh"
+    t.integer  "iliac_crest"
+    t.integer  "abdominal"
+    t.integer  "chest"
+    t.integer  "axilla"
+    t.integer  "calf"
+    t.integer  "biceps"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["anthropometric_evaluation_id"], name: "index_skin_fold_measurements_on_anthropometric_evaluation_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

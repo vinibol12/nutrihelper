@@ -5,4 +5,5 @@
   <%= @appointment.user.full_name %></strong>
 </p>
 
+<a><%= link_to 'New Evaluation for this patient', new_anthropometric_evaluation_path(@appointment.user) %></a>
 
