@@ -9,6 +9,42 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="row main">
+      <div class="col-lg-3 side_bar">
+        <div class="row header">
+          Some stuff
+        </div>
+        <div class="row body">
+          <div class="row">
+            <div class="col-lg-2">
+            </div>
+            <%= button_to 'New Patient ', new_user_path, method: :get, class: 'btn btn-success btn-lg col-lg-8'%>
+            <div class="col-lg-2">
+            </div>
+          </div>
+          </br>
+          <div class="row">
+            <div class="col-lg-2">
+            </div>
+              <%= button_to 'New Appointment', new_appointment_path, method: :get, class: 'btn btn-success btn-lg col-lg-8'%>
+            <div class="col-lg-2">
+            </div>
+          </div>
+          </br>
+          <div class="row">
+            <div class="col-lg-2">
+            </div>
+            <div class="btn btn-success btn-lg col-lg-8">
+              Enviar questionario
+            </div>
+            <div class="col-lg-2">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9 content">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

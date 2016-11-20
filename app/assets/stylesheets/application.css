@@ -15,18 +15,34 @@
  *= require_self
  */
 body {
-    background-color: #dff0d8;
-    font-size: 18px;
+    font-size: 14px;
+    max-width: 95%;
 }
 
-.home  {
+.main {
     background-image: url(eatright.png);
-    height: 300px;
+    height: 700px;
+}
 
+.side_bar {
+    height: inherit;
+    background-color: #dff0d8;
+    opacity: 1.0;
+    padding: 1em 1.5em 1em 2.5em
+}
+
+.side_bar .header{
+    height: 5em;
+    background-color: #ffffff;
+    padding: 1em;
+}
+
+.side_bar .body {
+    padding-top: 3em;
 }
 
  button {
-     width: 100px;
+     width: 100%;
      align-content: center;
 }
 
