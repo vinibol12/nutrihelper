@@ -12,11 +12,21 @@
         </div>
     <% end %>
 
-    <h2>Cirumferences</h2>
-    <h2>Skin Folds</h2>
-    <h2>BMI</h2>
-    <h2>Body Composition Results</h2>
-    <%= i.submit %>
+    <h3>Cirumferences</h3>
+    <%= form_for(@circumferences) do |i| %>
+      <%= i.abdomen %>
+      <%= i.waist %>
+      <%= i.hip %>
+      <%= i.arm %>
+      <%= i.submit 'Calculate', class: ['btn''btn-primary']%>
+
+    <% end %>
+
+
+    <h3>Skin Folds</h3>
+    <h3>BMI</h3>
+    <h3>Body Composition Results</h3>
+    <%= i.submit 'Save', class: ['btn''btn-primary']%>
 
 <% end %>
 <%= link_to 'Back', root_path %>
