@@ -10,7 +10,7 @@
           </ul>
         </div>
     <% end %>
-    <h2>Select a patient</h2>
+    <h3>Select a client</h3>
     <%= f.select :user_id, @users.collect { |p| [ p.full_name, p.id ] } %>
     <%= f.submit 'Start', class: 'btn btn-primary' %>
 <% end %>

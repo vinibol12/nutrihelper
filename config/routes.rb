@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'application#home'
 
   post 'circumference_measurements', to: 'circumference_measurements#calculate'
+  post 'skin_fold_measurements', to: 'skin_fold_measurement#calculate'
 
   resources :users
 

@@ -1,0 +1,2 @@
+module SkinFoldMeasurementHelper
+end

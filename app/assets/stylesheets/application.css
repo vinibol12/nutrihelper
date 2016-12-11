@@ -15,12 +15,12 @@
  *= require_self
  */
 body {
-    font-size: 14px;
+    font-size: 13px;
     max-width: 95%;
 }
 
 .main {
-    background-image: url(eatright.png);
+    /*background-image: url(eatright.png);*/
     height: 700px;
 }
 
@@ -42,7 +42,6 @@ body {
 }
 
  button {
-     width: 100%;
      align-content: center;
 }
 
