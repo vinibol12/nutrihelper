@@ -21,10 +21,10 @@ body {
 
 .main {
     /*background-image: url(eatright.png);*/
-    height: 700px;
+
 }
 
-.side_bar {
+.nav_bar {
     height: inherit;
     background-color: #dff0d8;
     opacity: 1.0;

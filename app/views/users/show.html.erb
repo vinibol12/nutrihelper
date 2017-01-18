@@ -1,29 +1,45 @@
-<p id="notice"><%= notice %></p>
+<%- if notice %>
+  <div class="alert alert-dismissible alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= notice %>
+  </div>
+<%- end %>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
 
-<p>
-  <strong>DOB:</strong>
-  <%= @user.dob %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">Client Details </div>
+  <div class="panel-body">
+    <p>
+      <strong>First name:</strong>
+      <%= @user.first_name %>
+    </p>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @user.gender.humanize %>
-</p>
+    <p>
+      <strong>Last name:</strong>
+      <%= @user.last_name %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+    <p>
+      <strong>DOB:</strong>
+      <%= @user.dob %>
+    </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+    <p>
+      <strong>Gender:</strong>
+      <%= @user.gender.humanize %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
+  </div>
+</div>
+
+
+
+<%= link_to 'New Appointment for this Client', appointment_path(@user), class: 'btn btn-link'%>
+<%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-link' %>
+<%= link_to 'Delete', user_path(@user), method: :delete, class: '"btn btn-danger"' %>
+
