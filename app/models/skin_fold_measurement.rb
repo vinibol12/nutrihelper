@@ -18,4 +18,5 @@
 #
 
 class SkinFoldMeasurement < ApplicationRecord
+  belongs_to :anthropometric_evaluation
 end

@@ -12,4 +12,5 @@
 #
 
 class BmiMeasurement < ApplicationRecord
+  belongs_to :anthropometric_evaluation
 end

@@ -1,120 +1,119 @@
-<style>
-  .form-control { height: 22px;  padding: 3px 6px;}
-  .btn {
-    margin: 10px 0;
-    padding: 2px 4px;
-  }
-  .well {
-    margin: 2px;
-  }
-  .page-title {
-    text-align: center;
-  }
-  .evaluation-label {
-    text-align: left;
-    margin: 5px;
-    padding-left: 0;
-  }
-</style>
-<h2 class="page-title">Evaluation</h2>
-<%= form_for(@evaluation, html:{class: 'row'}) do |i| %>
-  <% if @evaluation.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@evaluation.errors.count, "error") %> prohibited this  evaluation from being saved:</h2>
-        <ul>
-          <% @evaluation.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-  <% end %>
-  <div class="container-fluid">
-    <div class="well col-lg-3" >
-      <%= form_for(@circumferences) do |i| %>
+<h2 class="page-title">
+  Evaluation for <%= @user.full_name %>
+</h2>
+<%= form_for @anthropometric_evaluation do |e| %>
+  <div class="container-fluid" style="height: 300px">
+    <%= hidden_field_tag :appointment_id, @appointment.id %>
+    <div class="well col-lg-3 evaluation-type"  >
+      <div class="col-lg-12">
+        <h3>Circumferences</h3>
+        <label class="col-lg-12 evaluation-label">Abdomen</label>
         <div class="col-lg-12">
-          <h3>Circumferences</h3>
-          <label class="col-lg-12 evaluation-label">Abdomen</label>
-          <div class="col-lg-12">
-            <%= i.number_field :abdomen, class: 'form-control', placeholder: 'cm' %>
-          </div>
-          <label class="col-lg-12 evaluation-label">Waist</label>
-          <div class="col-lg-12">
-            <%= i.number_field :waist, class: 'form-control', placeholder: 'cm' %>
-          </div>
-          <label class="col-lg-12 evaluation-label ">Hips</label>
-          <div class="col-lg-12">
-            <%= i.number_field :hip, class: 'form-control', placeholder: 'cm'%>
-          </div>
-          <label class="col-lg-12 evaluation-label">Arm</label>
-          <div class="col-lg-12">
-            <%= i.number_field :arm, class: 'form-control', placeholder: 'cm' %>
-          </div>
+          <%= e.number_field :abdomen, class: 'form-control', placeholder: 'cm' %>
         </div>
-      <% end %>
-     </div>
-    <div class=" well col-lg-6">
+        <label class="col-lg-12 evaluation-label">Waist</label>
+        <div class="col-lg-12">
+          <%= e.number_field :waist, class: 'form-control', placeholder: 'cm' %>
+        </div>
+        <label class="col-lg-12 evaluation-label ">Hips</label>
+        <div class="col-lg-12">
+          <%= e.number_field :hip, class: 'form-control', placeholder: 'cm'%>
+        </div>
+        <label class="col-lg-12 evaluation-label">Arm</label>
+        <div class="col-lg-12">
+          <%= e.number_field :arm, class: 'form-control', placeholder: 'cm' %>
+        </div>
+      </div>
+    </div>
+    <div class=" well col-lg-5 evaluation-type">
       <h3>Skin Folds</h3>
-      <%= form_for(@skinfolds, html:{class: 'form-horizontal' }) do |i| %>
-        <div class="form-group col-lg-4">
-          <label class="col-lg-12 evaluation-label">Triceps</label>
-          <div class="col-lg-12">
-            <%= i.number_field :triceps, class: ['form-control', placeholder: 'mm'] %>
-          </div>
-          <label class="col-lg-12 evaluation-label ">Subscapular</label>
-          <div class="col-lg-12">
-            <%= i.number_field :subscapular, class: 'form-control', placeholder: 'mm' %>
-          </div>
-          <label class="col-lg-12 evaluation-label">Thigh</label>
-          <div class="col-lg-12">
-            <%= i.number_field :thigh, class: 'form-control', placeholder: 'mm'%>
-          </div>
+      <div class="form-group col-lg-4">
+        <label class="col-lg-12 evaluation-label">Triceps</label>
+        <div class="col-lg-12">
+          <%= e.number_field :triceps, class: 'form-control', placeholder: 'mm' %>
         </div>
-        <div class="form-group col-lg-4">
-          <label class="col-lg-12 evaluation-label">Iliac_crest</label>
-          <div class="col-lg-12">
-            <%= i.number_field :iliac_crest, class: 'form-control', placeholder: 'mm' %>
-          </div>
-          <label class="col-lg-12 evaluation-label">Abdominal</label>
-          <div class="col-lg-12">
-            <%= i.number_field :abdominal, class: 'form-control', placeholder: 'mm' %>
-          </div>
-          <label class="col-lg-12 evaluation-label">Iliac_crest</label>
-          <div class="col-lg-12">
-            <%= i.number_field :iliac_crest, class: 'form-control', placeholder: 'mm' %>
-          </div>
+        <label class="col-lg-12 evaluation-label ">Subscapular</label>
+        <div class="col-lg-12">
+          <%= e.number_field :subscapular, class: 'form-control', placeholder: 'mm' %>
         </div>
+        <label class="col-lg-12 evaluation-label">Thigh</label>
+        <div class="col-lg-12">
+          <%= e.number_field :thigh, class: 'form-control', placeholder: 'mm'%>
+        </div>
+      </div>
 
-        <div class="form-group col-lg-4">
-          <label class="col-lg-12 evaluation-label ">Chest</label>
-          <div class="col-lg-12">
-            <%= i.number_field :chest, class: 'form-control', placeholder: 'mm' %>
-          </div>
-          <label class="col-lg-12 evaluation-label">Axilla</label>
-          <div class="col-lg-12">
-            <%= i.number_field :axilla, class: 'form-control', placeholder: 'mm' %>
-          </div>
-           <label class="col-lg-12 evaluation-label">Biceps</label>
-          <div class="col-lg-12">
-            <%= i.number_field :biceps, class: 'form-control', placeholder: 'mm' %>
-          </div>
+      <div class="form-group col-lg-4">
+        <label class="col-lg-12 evaluation-label">Abdominal</label>
+        <div class="col-lg-12">
+          <%= e.number_field :abdominal, class: 'form-control', placeholder: 'mm' %>
         </div>
-        <div class="col-lg-3">
-          <button class="btn btn-primary">
-            Calculate
-          </button>
-          <label class="col-lg-12 evaluation-label">Result</label>
-          <div class="col-lg-12 evaluation-label">
-            <%= text_field_tag :result, nil, class: 'form-control' %>
-          </div>
+        <label class="col-lg-12 evaluation-label">Iliac crest</label>
+        <div class="col-lg-12">
+          <%= e.number_field :iliac_crest, class: 'form-control', placeholder: 'mm' %>
         </div>
+        <label class="col-lg-12 evaluation-label ">Chest</label>
+        <div class="col-lg-12">
+          <%= e.number_field :chest, class: 'form-control', placeholder: 'mm' %>
+        </div>
+      </div>
 
+      <div class="form-group col-lg-4">
+        <label class="col-lg-12 evaluation-label">Axilla</label>
+        <div class="col-lg-12">
+          <%= e.number_field :axilla, class: 'form-control', placeholder: 'mm' %>
         </div>
-      <% end %>
+        <label class="col-lg-12 evaluation-label">Biceps</label>
+        <div class="col-lg-12">
+          <%= e.number_field :biceps, class: 'form-control', placeholder: 'mm' %>
+        </div>
+      </div>
+    </div>
+    <div class=" well col-lg-3 evaluation-type">
+      <h3>BMI</h3>
+      <label class="col-lg-12 evaluation-label">Height</label>
+      <div class="col-lg-8">
+        <%= e.number_field :height, class: 'form-control', placeholder: 'cm' %>
+      </div>
+      <label class="col-lg-12 evaluation-label">Weight</label>
+      <div class="col-lg-8">
+        <%= e.number_field :height, class: 'form-control', placeholder: 'cm' %>
+      </div>
     </div>
   </div>
-
-  <!--<h3>BMI</h3>-->
-  <!--<h3>Body Composition Results</h3>-->
-  <%= i.submit 'Save', class: ['btn''btn-primary']%>
-
+  <div class="row">
+    <div class="container-fluid">
+      <div class="well col-lg-11" style="width: 92%">
+        <h3 style="text-align: center; margin: 0">Results</h3>
+        <div class="col-lg-2">
+          <label class="col-lg-12 evaluation-label">BMI</label>
+          <div class=" col-lg-12">
+            <%= text_field_tag :bmi, nil, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <label class="col-lg-12 evaluation-label">Lean Mass</label>
+          <div class=" col-lg-12">
+            <%= text_field_tag :lean_mass, nil, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <label class="col-lg-12 evaluation-label">Body Fat (kg)</label>
+          <div class=" col-lg-12">
+            <%= text_field_tag :fat_mass, nil, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <label class="col-lg-12 evaluation-label">Body Fat (%)</label>
+          <div class=" col-lg-12">
+            <%= text_field_tag :fat_percentage, nil, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class=" col-lg-12">
+            <%= e.submit 'Save' , class:'btn btn-primary', style: 'margin-top: 13px'%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>

@@ -1,12 +1,3 @@
-<%- if notice %>
-  <div class="alert alert-dismissible alert-success">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <%= notice %>
-  </div>
-<%- end %>
-
-
-
 <div class="panel panel-default">
   <div class="panel-heading">Client Details </div>
   <div class="panel-body">
@@ -36,10 +27,10 @@
     </p>
   </div>
 </div>
-
-
-
-<%= link_to 'New Appointment for this Client', appointment_path(@user), class: 'btn btn-link'%>
+<%= form_for(@appointment) do |f| %>
+    <%= f.hidden_field :user_id  %>
+    <%= f.submit 'New Appointment for this Client', class: 'btn btn-link' %>
+<% end %>
 <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-link' %>
-<%= link_to 'Delete', user_path(@user), method: :delete, class: '"btn btn-danger"' %>
+<%= link_to 'Delete', user_path(@user), method: :delete, class: 'btn btn-danger' %>
 

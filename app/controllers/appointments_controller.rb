@@ -1,8 +1,7 @@
 class AppointmentsController < ApplicationController
-
   def new
     @appointment = Appointment.new
-    @users = User.all
+    @users = User.all.order('first_name')
     render :new
   end
 

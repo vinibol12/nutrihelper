@@ -3,7 +3,7 @@
 # Table name: body_compositions
 #
 #  id                         :integer          not null, primary key
-#  atropometric_evaluation_id :integer          not null
+#  anthropometric_evaluation_id :integer          not null
 #  fat_percentage             :decimal(, )
 #  fat_mass                   :float
 #  lean_mass                  :float
@@ -12,4 +12,5 @@
 #
 
 class BodyComposition < ApplicationRecord
+  belongs_to :anthropometric_evaluation
 end
