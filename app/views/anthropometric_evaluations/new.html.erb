@@ -1,7 +1,7 @@
 <h2 class="page-title">
   Evaluation for <%= @user.full_name %>
 </h2>
-<%= form_for @anthropometric_evaluation do |e| %>
+<%= form_for @evaluation do |e| %>
   <div class="container-fluid" style="height: 300px">
     <%= hidden_field_tag :appointment_id, @appointment.id %>
     <div class="well col-lg-3 evaluation-type"  >
@@ -76,7 +76,7 @@
       </div>
       <label class="col-lg-12 evaluation-label">Weight</label>
       <div class="col-lg-8">
-        <%= e.number_field :height, class: 'form-control', placeholder: 'cm' %>
+        <%= e.number_field :weight, class: 'form-control', step: :any, placeholder: 'kg' %>
       </div>
     </div>
   </div>
@@ -87,7 +87,7 @@
         <div class="col-lg-2">
           <label class="col-lg-12 evaluation-label">BMI</label>
           <div class=" col-lg-12">
-            <%= text_field_tag :bmi, nil, class: 'form-control' %>
+            <%= text_field_tag :bmi, nil, class: 'form-control'  %>
           </div>
         </div>
         <div class="col-lg-2">
@@ -111,6 +111,11 @@
         <div class="col-lg-2">
           <div class=" col-lg-12">
             <%= e.submit 'Save' , class:'btn btn-primary', style: 'margin-top: 13px'%>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class=" col-lg-12">
+            <button  type="button" class='btn btn-primary' onclick="calculateBodyCompositions()" style='margin-top: 13px'>Calculate</button>
           </div>
         </div>
       </div>
