@@ -51,7 +51,7 @@ function bodyFatPercentage() {
 }
 
 function setBodyFatPercentage(fatPercentage) {
-    $('#fat_percentage').val(fatPercentage.toFixed(2))
+    $('#anthropometric_evaluation_fat_percentage').val(fatPercentage.toFixed(2))
 }
 
 function getWeight() {
@@ -66,7 +66,7 @@ function calculateBodyFatWeight (fatPercentage) {
   return (getWeight() / 100) * fatPercentage;
 }
 function setBodyFatWeight(bodyFatWeight) {
-  $('#fat_mass').val(bodyFatWeight.toFixed(3))
+  $('#anthropometric_evaluation_fat_mass').val(bodyFatWeight.toFixed(3))
 }
 
 function calculateLeanMass(weight, fatWeight) {
@@ -74,7 +74,7 @@ function calculateLeanMass(weight, fatWeight) {
 }
 
 function setLeanMass(leanMass) {
-  $('#lean_mass').val(leanMass.toFixed(3))
+  $('#anthropometric_evaluation_lean_mass').val(leanMass.toFixed(3))
 }
 
 function calculateBMI(weight, height) {
@@ -82,7 +82,7 @@ function calculateBMI(weight, height) {
 }
 
 function setBMI(bMI) {
-  $('#bmi').val(bMI.toFixed(1))
+  $('#anthropometric_evaluation_bmi').val(bMI.toFixed(1))
 }
 
 function calculateBodyCompositions() {
@@ -95,5 +95,7 @@ function calculateBodyCompositions() {
   var bMI = calculateBMI(getWeight(), getHeight());
   setBMI(bMI);
 }
+
+
 
 

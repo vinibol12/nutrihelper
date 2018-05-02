@@ -9,7 +9,6 @@ class AnthropometricEvaluationsController < ApplicationController
     @evaluation = AnthropometricEvaluation.new(evaluation_params.merge(appointment_id: @appointment.id))
     if @evaluation.save
       flash[:success] = 'Saved Evaluation with success'
-      render :show
     else
       flash[:error] = @evaluation.errors.full_messages.join(', ')
       render :new
@@ -33,8 +32,7 @@ class AnthropometricEvaluationsController < ApplicationController
 
   def evaluation_params
     params[:anthropometric_evaluation].permit(:fat_percentage, :fat_mass, :lean_mass, :abdomen, :waist, :hip, :arm, :weight, :height,
-                                              :bmi, :triceps, :subscapular, :thigh, :iliac_crest, :abdominal, :chest, :axilla, :calf,
-                                              :biceps)
+                                              :bmi, :triceps, :subscapular, :thigh, :iliac_crest, :abdominal, :chest, :axilla)
   end
 
 end

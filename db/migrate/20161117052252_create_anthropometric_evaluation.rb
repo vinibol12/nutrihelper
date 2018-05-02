@@ -27,8 +27,6 @@ class CreateAnthropometricEvaluation < ActiveRecord::Migration[5.0]
       t.decimal :abdominal, precision: 5, scale: 2
       t.decimal :chest, precision: 5, scale: 2
       t.decimal :axilla, precision: 5, scale: 2
-      t.decimal :calf, precision: 5, scale: 2
-      t.decimal :biceps, precision: 5, scale: 2
       t.decimal :lean_mass, precision: 5, scale: 2
       t.decimal :body_fat, precision: 5, scale: 2
       t.decimal :body_fat_percentage, precision: 5, scale: 2
