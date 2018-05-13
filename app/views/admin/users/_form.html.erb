@@ -1,13 +1,13 @@
-<% if user.errors.any? %>
+<% if @user.errors.any? %>
     <div class="row">
-      <% user.errors.full_messages.each do |message| %>
+      <% @user.errors.full_messages.each do |message| %>
         <div class="alert alert-dismissible alert-danger" style="max-width: 50%">
           <%= message %>
         </div>
       <% end %>
     </div>
 <% end %>
-<%= form_for user, html: {class: 'form-horizontal col-lg-6'} do |f|%>
+<%= form_for @user, html: {class: 'form-horizontal col-lg-6'} do |f|%>
   <h3>Enter client details</h3>
   <hr>
   <fieldset>

@@ -3,7 +3,7 @@
   <%= @appointment.user.full_name %></strong>
 </p>
 
-<%= form_tag '/anthropometric_evaluations/new', method: :get do  %>
+<%= form_tag '/admin/anthropometric_evaluations/new', method: :get do  %>
     <%= hidden_field_tag :user_id, @appointment.user.id  %>
     <%= hidden_field_tag :appointment_id, @appointment.id %>
     <%= submit_tag 'New Evaluation for this Client', class: 'btn btn-link' %>

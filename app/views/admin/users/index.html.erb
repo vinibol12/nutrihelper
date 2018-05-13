@@ -13,7 +13,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to user.full_name, user %></td>
+        <td><%= link_to user.full_name, admin_user_path(user) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -21,4 +21,4 @@
 
 <br>
 
-<%= link_to 'New Client', new_user_path %>
+<%= link_to 'New Client', new_admin_user_path %>

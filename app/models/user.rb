@@ -5,7 +5,7 @@
 #  id                     :integer          not null, primary key
 #  first_name             :string
 #  last_name              :string
-#  dob                    :date
+#  date_of_birth          :date
 #  gender                 :integer
 #  email                  :string           default(""), not null
 #  created_at             :datetime         not null
@@ -19,6 +19,7 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
+#  roles                  :text             default([]), is an Array
 #
 
 class User < ApplicationRecord
@@ -30,7 +31,7 @@ class User < ApplicationRecord
   enum gender: { male: 0, female: 1 }
 
   validates_uniqueness_of :email, message: 'There is already a patient registered with this email address'
-  validates_presence_of :first_name, :last_name, :dob, :gender, :email
+  validates_presence_of :first_name, :last_name, :date_of_birth, :gender, :email, :encrypted_password
 
   has_many :appointments
 

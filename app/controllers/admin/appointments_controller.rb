@@ -1,4 +1,4 @@
-class AppointmentsController < ApplicationController
+class Admin::AppointmentsController < Admin::BaseController
   def new
     @appointment = Appointment.new
     @users = User.all.order('first_name')
@@ -9,7 +9,7 @@ class AppointmentsController < ApplicationController
     @appointment =  Appointment.new(user_params)
     if @appointment.save
       flash[:success] = 'New Appointment created'
-      redirect_to appointment_path(@appointment)
+      redirect_to new_admin_appointment_path(@appointment)
     else
       flash[:error] = 'Appointment could not be created'
       redirect_to :back

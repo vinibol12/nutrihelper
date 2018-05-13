@@ -1,13 +1,12 @@
-class AnthropometricEvaluationsController < ApplicationController
+class Admin::AnthropometricEvaluationsController < Admin::BaseController
 
-  before_action :load_appointment
-  before_action :load_client
+  before_action :load_resources
   before_action :load_evaluation, only: :new
 
   def create
-    # binding.pry
     @evaluation = AnthropometricEvaluation.new(evaluation_params.merge(appointment_id: @appointment.id))
     if @evaluation.save
+
       flash[:success] = 'Saved Evaluation with success'
     else
       flash[:error] = @evaluation.errors.full_messages.join(', ')
@@ -18,12 +17,14 @@ class AnthropometricEvaluationsController < ApplicationController
 
   private
 
-  def load_appointment
-    @appointment = Appointment.find(params[:appointment_id])
-  end
-
-  def load_client
-    @user = @appointment.user
+  def load_resources
+    if params[:appointment_id]
+      @appointment = Appointment.find(params[:appointment_id])
+      @user = @appointment.user
+    else
+      @user = User.find  params[:appointment][:user_id]
+      @appointment = Appointment.create(user: @user)
+    end
   end
 
   def load_evaluation
@@ -34,5 +35,4 @@ class AnthropometricEvaluationsController < ApplicationController
     params[:anthropometric_evaluation].permit(:fat_percentage, :fat_mass, :lean_mass, :abdomen, :waist, :hip, :arm, :weight, :height,
                                               :bmi, :triceps, :subscapular, :thigh, :iliac_crest, :abdominal, :chest, :axilla)
   end
-
 end

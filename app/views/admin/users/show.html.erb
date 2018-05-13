@@ -12,8 +12,8 @@
     </p>
 
     <p>
-      <strong>DOB:</strong>
-      <%= @user.dob %>
+      <strong>Date of birth:</strong>
+      <%= @user.date_of_birth %>
     </p>
 
     <p>
@@ -27,10 +27,10 @@
     </p>
   </div>
 </div>
-<%= form_for(@appointment) do |f| %>
+<%= form_for(@appointment, url: admin_appointments_path) do |f| %>
     <%= f.hidden_field :user_id  %>
     <%= f.submit 'New Appointment for this Client', class: 'btn btn-link' %>
 <% end %>
-<%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-link' %>
-<%= link_to 'Delete', user_path(@user), method: :delete, class: 'btn btn-danger' %>
+<%= link_to 'Edit', edit_admin_user_path(@user), class: 'btn btn-link' %>
+<%= link_to 'Delete', admin_user_path(@user), method: :delete, class: 'btn btn-danger' %>
 

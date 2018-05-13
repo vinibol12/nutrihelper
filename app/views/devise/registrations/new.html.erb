@@ -1,0 +1,71 @@
+<h2>Sign up</h2>
+<% if resource.errors.any? %>
+    <div class="row">
+      <% resource.errors.full_messages.each do |message| %>
+          <div class="alert alert-dismissible alert-danger" style="max-width: 50%">
+            <%= message %>
+          </div>
+      <% end %>
+    </div>
+<% end %>
+<%= form_for(resource , as: resource, url: registration_path(resource_name),html: {class: 'form-horizontal col-lg-6'}, validate: true)  do |f|%>
+      <div class="form-group">
+        <label class="col-lg-2 control-label">Name</label>
+        <div class="col-lg-10">
+          <%=f.text_field :first_name, class: 'form-control', rows:'3' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-lg-2 control-label">Surname</label>
+        <div class="col-lg-10">
+          <%=f.text_field :last_name, class: 'form-control', rows:'3' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-lg-2 control-label">Date of Birth</label>
+        <div class="col-lg-10">
+          <%=f.date_select :date_of_birth,  {start_year: 1920, end_year: Date.today.year, class: 'form-control', rows:'3', as: :date_of_birth} %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-lg-2 control-label">Gender</label>
+        <div class="col-lg-10">
+          <div class="radio">
+            <%=f.select :gender, [['Male', 'male'], ['Female', 'female']], rows:'3', include_blank: true, required: true %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-lg-2 control-label" >Email </label>
+        <div class="col-lg-5">
+          <%= f.email_field :email, class: 'form-control', rows:'3' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-lg-2 control-label">Password</label>
+        <div class="col-lg-5">
+          <%= f.password_field :password, class: 'form-control', rows:'3', autocomplete: "off" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-lg-2 control-label">Password onfirmation</label>
+        <div class="col-lg-5">
+          <%= f.password_field :password_confirmation, class: 'form-control', rows:'3', autocomplete: "off" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <button type="submit" class="btn btn-primary">Sign up</button>
+        </div>
+      </div>
+    </fieldset>
+<%-end%>
+
+<%= render "devise/shared/links" %>

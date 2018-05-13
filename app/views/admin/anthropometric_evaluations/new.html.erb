@@ -1,7 +1,7 @@
 <h2 class="page-title">
   Evaluation for <%= @user.full_name %>
 </h2>
-<%= form_for @evaluation do |e| %>
+<%= form_for @evaluation, url: admin_anthropometric_evaluations_path do |e| %>
   <div class="container-fluid" style="height: 300px">
     <%= hidden_field_tag :appointment_id, @appointment.id %>
     <div class="well col-lg-3 evaluation-type"  >

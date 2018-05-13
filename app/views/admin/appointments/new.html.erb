@@ -1,5 +1,5 @@
 
-<%= form_for(@appointment) do |f| %>
+<%= form_for(@appointment, method: :get, url: new_admin_anthropometric_evaluation_path) do |f| %>
     <h3>Select a client</h3>
     <hr>
     <div>
@@ -10,7 +10,7 @@
     </div>
     <%= f.submit 'Start Consultation', class: 'btn btn-link' %>
     or
-    <%= link_to 'Add new Client', new_user_path, class: ['btn', 'btn-link' ] %>
+    <%= link_to 'Add new Client', new_admin_user_path, class: ['btn', 'btn-link' ] %>
 <% end %>
 
 
