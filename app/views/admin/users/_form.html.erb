@@ -7,7 +7,7 @@
       <% end %>
     </div>
 <% end %>
-<%= form_for @user, html: {class: 'form-horizontal col-lg-6'} do |f|%>
+<%= form_for @user, url: admin_users_path, html: {class: 'form-horizontal col-lg-6'} do |f|%>
   <h3>Enter client details</h3>
   <hr>
   <fieldset>
@@ -26,7 +26,7 @@
     <div class="form-group">
       <label class="col-lg-2 control-label">DOB</label>
       <div class="col-lg-10">
-        <%=f.date_select :dob,  {start_year: 1920, end_year: Date.today.year, class: 'form-control', rows:'3'} %>
+        <%=f.date_select :date_of_birth,  {start_year: 1920, end_year: Date.today.year, class: 'form-control', rows:'3'} %>
       </div>
     </div>
     <div class="form-group">

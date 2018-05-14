@@ -23,11 +23,18 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><%= link_to 'New Appointment', new_admin_appointment_path %></li>
-            <li><%= link_to 'New Client', new_admin_user_path %></li>
-            <li><%= link_to 'All Clients', admin_users_path %></li>
+            <%- if current_user&.admin? %>
+              <li><%= link_to 'New Appointment', new_admin_appointment_path %></li>
+              <li><%= link_to 'New Client', new_admin_user_path %></li>
+              <li><%= link_to 'All Clients', admin_users_path %></li>
+            <% end %>
+            <%- if current_user %>
+              <li><a><%= "Welcome #{current_user.first_name}" %></a></li>
+              <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+            <% end %>
           </ul>
         </div>
+
       </div>
     </nav>
     <div class="container main">

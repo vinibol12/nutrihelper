@@ -39,4 +39,8 @@ class User < ApplicationRecord
     first_name + ' ' + last_name
   end
 
+  def admin?
+    roles.include? 'admin'
+  end
+
 end

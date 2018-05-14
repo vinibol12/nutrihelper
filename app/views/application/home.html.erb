@@ -1,5 +1,7 @@
 <h1 style="text-align: center; font-size: 50px">WELCOME TO NUTRIHELPER</h1>
 
-<%= link_to 'LOGIN', new_user_session_path,  class: [:btn, 'btn-outline-primary']  %>
-<br/>
-<%= link_to 'SIGN UP', new_user_registration_path, class: [:btn, 'btn-outline-primary']  %>
+<%- unless current_user %>
+  <%= link_to 'LOGIN', new_user_session_path,  class: [:btn, 'btn-outline-primary']  %>
+  <br/>
+  <%= link_to 'SIGN UP', new_user_registration_path, class: [:btn, 'btn-outline-primary']  %>
+<% end %>
