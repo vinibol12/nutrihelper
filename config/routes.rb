@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     resources :users
     resources :appointments, only: [:new, :destroy, :create, :edit, :update, :show]
     resources :anthropometric_evaluations, only: [:new, :create, :edit, :update]
+    resources :users do
+      resources :appointments, only: [:index, :show]
+    end
   end
 
 

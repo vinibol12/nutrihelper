@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Appointments History <%= @user.full_name %> </h2>
+
+<table class="table table-striped table-hover">
+  <thead>
+  <tr class="row">
+    <th>Date</th>
+    <th>Body Fat (%)</th>
+    <th>Body Fat (kg)</th>
+    <th>Lean Mass (kg)</th>
+    <th>BMI</th>
+    <th>weight</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <% @appointments.each do |appointment| %>
+    <% evaluation = appointment.anthropometric_evaluation %>
+      <tr class="row">
+        <td><%= appointment.created_at.to_s(:weekday_and_day_of_year) %></td>
+        <td><%= evaluation.fat_percentage if evaluation %></td>
+        <td><%= evaluation.fat_mass if evaluation %></td>
+        <td><%= evaluation.lean_mass if evaluation %></td>
+        <td><%= evaluation.bmi if evaluation %></td>
+        <td><%= evaluation.weight if evaluation %></td>
+        <td>
+          <%= button_to 'Delete', admin_appointment_path(appointment), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure? This will delete any Evaluations made during this appointment'}%>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'Create Appointment for Client', admin_appointments_path, class: 'btn btn-primary', params:{ appointment: {user_id: @user.id }}%>

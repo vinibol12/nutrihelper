@@ -5,13 +5,13 @@ class Admin::AnthropometricEvaluationsController < Admin::BaseController
 
   def create
     @evaluation = AnthropometricEvaluation.new(evaluation_params.merge(appointment_id: @appointment.id))
+    @user = @evaluation.user
     if @evaluation.save
-
       flash[:success] = 'Saved Evaluation with success'
+      redirect_to admin_user_appointments_path(@user)
     else
       flash[:error] = @evaluation.errors.full_messages.join(', ')
       render :new
-      # body_density_adult_male = 1,11200000 - ((0,00043499 * @total_sum) + (0,00000055 * (@total_sum ** 2)) - (0,0002882 * @age)
     end
   end
 

@@ -1,4 +1,11 @@
 class Admin::AppointmentsController < Admin::BaseController
+
+  def index
+    @user = User.find(params[:user_id])
+    @appointments = @user.appointments.eager_load(:anthropometric_evaluation)
+    render :index
+  end
+
   def new
     @appointment = Appointment.new
     @users = User.all.order('first_name')
@@ -18,6 +25,17 @@ class Admin::AppointmentsController < Admin::BaseController
 
   def show
     @appointment = Appointment.find(params[:id])
+  end
+
+  def destroy
+    @appointment = Appointment.find(params[:id])
+    @user = @appointment.user
+    if @appointment.destroy
+      flash[:success] = 'Appointment has been successfully deleted'
+    else
+      flash[:alert] = 'Could not delete appointment'
+    end
+    redirect_to admin_user_appointments_path(@user)
   end
 
   private
