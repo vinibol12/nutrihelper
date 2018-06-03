@@ -4,117 +4,106 @@
 <%= form_for @evaluation, url: admin_anthropometric_evaluations_path do |e| %>
   <div class="container-fluid" style="height: 300px">
     <%= hidden_field_tag :appointment_id, @appointment.id %>
-    <div class="well col-lg-3 evaluation-type"  >
+    <div class="col-lg-12">
+      <h4>Circumferences</h4>
       <div class="col-lg-12">
-        <h3>Circumferences</h3>
         <label class="col-lg-12 evaluation-label">Abdomen</label>
-        <div class="col-lg-12">
-          <%= e.number_field :abdomen, class: 'form-control', placeholder: 'cm' %>
-        </div>
+        <%= e.number_field :abdomen, class: 'form-control', placeholder: 'cm' %>
+      </div>
+      <div class="col-lg-12">
         <label class="col-lg-12 evaluation-label">Waist</label>
-        <div class="col-lg-12">
-          <%= e.number_field :waist, class: 'form-control', placeholder: 'cm' %>
-        </div>
+        <%= e.number_field :waist, class: 'form-control', placeholder: 'cm' %>
+      </div>
+      <div class="col-lg-12">
         <label class="col-lg-12 evaluation-label ">Hips</label>
-        <div class="col-lg-12">
-          <%= e.number_field :hip, class: 'form-control', placeholder: 'cm'%>
-        </div>
+        <%= e.number_field :hip, class: 'form-control', placeholder: 'cm'%>
+      </div>
+      <div class="col-lg-12">
         <label class="col-lg-12 evaluation-label">Arm</label>
-        <div class="col-lg-12">
-          <%= e.number_field :arm, class: 'form-control', placeholder: 'cm' %>
-        </div>
+        <%= e.number_field :arm, class: 'form-control', placeholder: 'cm' %>
       </div>
     </div>
-    <div class=" well col-lg-5 evaluation-type">
-      <h3>Skin Folds</h3>
-      <div class="form-group col-lg-4">
+    <h4>Skin Folds</h4>
+    <div class="form-group col-lg-4">
+      <div class="col-lg-12">
         <label class="col-lg-12 evaluation-label">Triceps</label>
-        <div class="col-lg-12">
-          <%= e.number_field :triceps, class: 'form-control', placeholder: 'mm' %>
-        </div>
+        <%= e.number_field :triceps, class: 'form-control', placeholder: 'mm' %>
+      </div>
+      <div class="col-lg-12">
         <label class="col-lg-12 evaluation-label ">Subscapular</label>
-        <div class="col-lg-12">
-          <%= e.number_field :subscapular, class: 'form-control', placeholder: 'mm' %>
-        </div>
+        <%= e.number_field :subscapular, class: 'form-control', placeholder: 'mm' %>
+      </div>
+      <div class="col-lg-12">
         <label class="col-lg-12 evaluation-label">Thigh</label>
-        <div class="col-lg-12">
-          <%= e.number_field :thigh, class: 'form-control', placeholder: 'mm'%>
-        </div>
+        <%= e.number_field :thigh, class: 'form-control', placeholder: 'mm'%>
       </div>
+    </div>
 
-      <div class="form-group col-lg-4">
+    <div class="form-group col-lg-4">
+      <div class="col-lg-12">
         <label class="col-lg-12 evaluation-label">Abdominal</label>
-        <div class="col-lg-12">
-          <%= e.number_field :abdominal, class: 'form-control', placeholder: 'mm' %>
-        </div>
+        <%= e.number_field :abdominal, class: 'form-control', placeholder: 'mm' %>
+      </div>
+      <div class="col-lg-12">
         <label class="col-lg-12 evaluation-label">Iliac crest</label>
-        <div class="col-lg-12">
-          <%= e.number_field :iliac_crest, class: 'form-control', placeholder: 'mm' %>
-        </div>
+        <%= e.number_field :iliac_crest, class: 'form-control', placeholder: 'mm' %>
+      </div>
+      <div class="col-lg-12">
         <label class="col-lg-12 evaluation-label ">Chest</label>
-        <div class="col-lg-12">
-          <%= e.number_field :chest, class: 'form-control', placeholder: 'mm' %>
-        </div>
+        <%= e.number_field :chest, class: 'form-control', placeholder: 'mm' %>
       </div>
-
-      <div class="form-group col-lg-4">
+    </div>
+    <div class="form-group col-lg-4">
+      <div class="col-lg-12">
         <label class="col-lg-12 evaluation-label">Axilla</label>
-        <div class="col-lg-12">
-          <%= e.number_field :axilla, class: 'form-control', placeholder: 'mm' %>
-        </div>
+        <%= e.number_field :axilla, class: 'form-control', placeholder: 'mm' %>
       </div>
     </div>
-    <div class=" well col-lg-3 evaluation-type">
-      <h3>BMI</h3>
+
+    <h4>BMI</h4>
+    <div class="col-lg-8">
       <label class="col-lg-12 evaluation-label">Height</label>
-      <div class="col-lg-8">
-        <%= e.number_field :height, class: 'form-control', placeholder: 'cm' %>
-      </div>
+      <%= e.number_field :height, class: 'form-control', placeholder: 'cm' %>
+    </div>
+    <div class="col-lg-8">
       <label class="col-lg-12 evaluation-label">Weight</label>
-      <div class="col-lg-8">
-        <%= e.number_field :weight, class: 'form-control', step: :any, placeholder: 'kg' %>
+      <%= e.number_field :weight, class: 'form-control', step: :any, placeholder: 'kg' %>
+    </div>
+    <h4>Results</h4>
+    <div class="col-lg-2">
+      <div class=" col-lg-12">
+        <label class="col-lg-12 evaluation-label">BMI</label>
+        <%= e.number_field :bmi, class: 'form-control', step: :any %>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <div class=" col-lg-12">
+        <label class="col-lg-12 evaluation-label">Lean Mass</label>
+        <%= e.number_field :lean_mass, class: 'form-control', step: :any %>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <div class=" col-lg-12">
+        <label class="col-lg-12 evaluation-label">Body Fat (kg)</label>
+        <%= e.number_field :fat_mass, class: 'form-control', step: :any %>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <div class=" col-lg-12">
+        <label class="col-lg-12 evaluation-label">Body Fat (%)</label>
+        <%= e.number_field :fat_percentage, class: 'form-control', step: :any %>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <div class=" col-lg-12">
+        <%= e.submit 'Save' , class:'btn btn-primary', style: 'margin-top: 13px'%>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <div class=" col-lg-12">
+        <button  type="button" class='btn btn-primary' onclick="calculateBodyCompositions()" style='margin-top: 13px'>Calculate</button>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="container-fluid">
-      <div class="well col-lg-11" style="width: 92%">
-        <h3 style="text-align: center; margin: 0">Results</h3>
-        <div class="col-lg-2">
-          <label class="col-lg-12 evaluation-label">BMI</label>
-          <div class=" col-lg-12">
-            <%= e.number_field :bmi, class: 'form-control', step: :any %>
-          </div>
-        </div>
-        <div class="col-lg-2">
-          <label class="col-lg-12 evaluation-label">Lean Mass</label>
-          <div class=" col-lg-12">
-            <%= e.number_field :lean_mass, class: 'form-control', step: :any %>
-          </div>
-        </div>
-        <div class="col-lg-2">
-          <label class="col-lg-12 evaluation-label">Body Fat (kg)</label>
-          <div class=" col-lg-12">
-            <%= e.number_field :fat_mass, class: 'form-control', step: :any %>
-          </div>
-        </div>
-        <div class="col-lg-2">
-          <label class="col-lg-12 evaluation-label">Body Fat (%)</label>
-          <div class=" col-lg-12">
-            <%= e.number_field :fat_percentage, class: 'form-control', step: :any %>
-          </div>
-        </div>
-        <div class="col-lg-2">
-          <div class=" col-lg-12">
-            <%= e.submit 'Save' , class:'btn btn-primary', style: 'margin-top: 13px'%>
-          </div>
-        </div>
-        <div class="col-lg-2">
-          <div class=" col-lg-12">
-            <button  type="button" class='btn btn-primary' onclick="calculateBodyCompositions()" style='margin-top: 13px'>Calculate</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 <% end %>

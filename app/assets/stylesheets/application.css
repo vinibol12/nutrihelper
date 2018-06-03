@@ -10,37 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require bootstrap.min
  *= require_tree .
  *= require_self
  */
-body {
-    font-size: 13px;
-    background-color: #c4e3f3;
-}
-
-.main {
-
-}
-
-.nav_bar {
-    height: inherit;
-    background-color: #dff0d8;
-    opacity: 1.0;
-    padding: 1em 1.5em 1em 2.5em
-}
-
-.side_bar .header{
-    height: 5em;
-    background-color: #ffffff;
-    padding: 1em;
-}
-
-.side_bar .body {
-    padding-top: 3em;
-}
-
- button {
-     align-content: center;
-}
 

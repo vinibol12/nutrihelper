@@ -66,7 +66,7 @@ function calculateBodyFatWeight (fatPercentage) {
   return (getWeight() / 100) * fatPercentage;
 }
 function setBodyFatWeight(bodyFatWeight) {
-  $('#anthropometric_evaluation_fat_mass').val(bodyFatWeight.toFixed(3))
+  $('#anthropometric_evaluation_fat_mass').val(bodyFatWeight.toFixed(2))
 }
 
 function calculateLeanMass(weight, fatWeight) {
@@ -74,7 +74,7 @@ function calculateLeanMass(weight, fatWeight) {
 }
 
 function setLeanMass(leanMass) {
-  $('#anthropometric_evaluation_lean_mass').val(leanMass.toFixed(3))
+  $('#anthropometric_evaluation_lean_mass').val(leanMass.toFixed(2))
 }
 
 function calculateBMI(weight, height) {
