@@ -96,6 +96,13 @@ function calculateBodyCompositions() {
   setBMI(bMI);
 }
 
+$(document).ready(function(){
+ $('#new_anthropometric_evaluation').change(function(){
+   calculateBodyCompositions();
+ })
+})
+
+
 
 
 

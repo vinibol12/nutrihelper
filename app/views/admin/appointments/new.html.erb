@@ -1,16 +1,25 @@
 
-<%= form_for(@appointment, method: :get, url: new_admin_anthropometric_evaluation_path) do |f| %>
-    <h3>Select a client</h3>
-    <hr>
-    <div>
-      <%= f.label :select_a_client %>
-    </div>
-      <%= f.select :user_id, @users.collect { |p| [ p.full_name, p.id ] } %>
-    <div>
-    </div>
-    <%= f.submit 'Start Consultation', class: 'btn btn-link' %>
-    or
-    <%= link_to 'Add new Client', new_admin_user_path, class: ['btn', 'btn-link' ] %>
-<% end %>
-
-
+<div class='container'>
+  <%= form_for(@appointment, url: admin_appointments_path) do |f| %>
+      <h5>Start Appointnment</h5>
+      <div for="appointment[user_id]">
+        <%= f.label :client %>
+        <%= f.select :user_id, @users.collect { |p| [ p.full_name, p.id ] }, include_blank: true  %>
+      </div>
+      <div class="input-field">
+        <%= label_tag :date %>
+        <%= text_field_tag :date, '', name: 'appointment[date]', class: :datepicker %>
+      </div>
+      <div class="input-field">
+        <%= label_tag :time %>
+        <%= text_field_tag :time, '', name: 'appointment[time]', class: :timepicker %>
+      </div>
+      <div>
+        <%= f.submit 'Start Appointment', class: 'btn btn-link' %>
+      </div>
+      or
+      <div>
+        <%= link_to 'Add new Client', new_admin_user_path, class: ['btn', 'btn-link' ] %>
+      </div>
+  <% end %>
+</div>

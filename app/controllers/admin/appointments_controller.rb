@@ -13,10 +13,11 @@ class Admin::AppointmentsController < Admin::BaseController
   end
 
   def create
-    @appointment =  Appointment.new(user_params)
+    parse_date_time
+    @appointment = Appointment.new(user: user, date_time: @date_time, notes: appointment_params[:notes])
     if @appointment.save
       flash[:success] = 'New Appointment created'
-      redirect_to new_admin_appointment_path(@appointment)
+      redirect_to admin_appointment_path(@appointment)
     else
       flash[:error] = 'Appointment could not be created'
       redirect_to :back
@@ -38,10 +39,21 @@ class Admin::AppointmentsController < Admin::BaseController
     redirect_to admin_user_appointments_path(@user)
   end
 
-  private
-
-  def user_params
-    params.require(:appointment).permit(:user_id)
+  def update
+    
   end
 
+  private
+
+  def appointment_params
+    params.require(:appointment).permit(:user_id, :date, :time, :notes)
+  end
+
+  def user
+    @user ||= User.find appointment_params[:user_id]
+  end
+
+  def parse_date_time
+    @date_time = DateTime.parse(appointment_params[:date] + appointment_params[:time])
+  end
 end

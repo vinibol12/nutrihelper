@@ -6,6 +6,8 @@
 #  user_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  date_time  :datetime
+#  notes      :string
 #
 
 class Appointment < ApplicationRecord

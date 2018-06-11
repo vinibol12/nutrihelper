@@ -25,6 +25,7 @@
 #  body_fat_percentage :decimal(5, 2)
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  notes               :string
 #
 
 class AnthropometricEvaluation < ApplicationRecord

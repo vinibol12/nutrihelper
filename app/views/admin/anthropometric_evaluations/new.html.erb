@@ -4,7 +4,7 @@
 <%= form_for @evaluation, url: admin_anthropometric_evaluations_path do |e| %>
   <div class="row">
     <%= hidden_field_tag :appointment_id, @appointment.id %>
-    <div class="col s12 m6 l3">
+    <div class="col s12 m6 l4">
       <h5>Circumferences</h5>
       <div>
         <label>Abdomen</label>
@@ -32,7 +32,7 @@
           <%= e.number_field :weight, placeholder: 'kg' %>
         </div>
     </div>
-    <div class="col s12 m6 l3">
+    <div class="col s12 m6 l4">
       <h5>Skin Folds</h5>
       <div class="col-lg-12">
         <label class="col-lg-12 evaluation-label">Triceps</label>
@@ -63,43 +63,47 @@
         <%= e.number_field :axilla, placeholder: 'mm' %>
       </div>
     </div>
-    <div class="col s12 m6 l3">
-      <h5>Results</h5>
-      <div class="col-lg-2">
-        <div class=" col-lg-12">
-          <label class="col-lg-12 evaluation-label">BMI</label>
+    <div class="col s12 m6 l4">
+      <div>
+        <h5>Results</h5>
+        <div>
+          <label>BMI</label>
           <%= e.number_field :bmi,  step: :any %>
         </div>
       </div>
-      <div class="col-lg-2">
-        <div class=" col-lg-12">
-          <label class="col-lg-12 evaluation-label">Lean Mass (kg)</label>
+      <div>
+        <div>
+          <label>Lean Mass (kg)</label>
           <%= e.number_field :lean_mass,  step: :any %>
         </div>
       </div>
-      <div class="col-lg-2">
-        <div class=" col-lg-12">
-          <label class="col-lg-12 evaluation-label">Body Fat (kg)</label>
+      <div>
+        <div>
+          <label>Body Fat (kg)</label>
           <%= e.number_field :fat_mass,  step: :any %>
         </div>
       </div>
-      <div class="col-lg-2">
-        <div class=" col-lg-12">
-          <label class="col-lg-12 evaluation-label">Body Fat (%)</label>
+      <div>
+        <div>
+          <label>Body Fat (%)</label>
           <%= e.number_field :fat_percentage,  step: :any %>
         </div>
       </div>
+      <div>
+        <h5>Notes</h5>
+        <%= e.text_area :notes %>
+      </div>
+    </div>
+    <h5>
+
+    </h5>
+  </div>
+
+  <div class="col-lg-2">
+    <div class=" col-lg-12">
+      <%= e.submit 'Save' , class:'btn btn-primary', style: 'margin-top: 13px'%>
     </div>
   </div>
-    <div class="col-lg-2">
-      <div class=" col-lg-12">
-        <%= e.submit 'Save' , class:'btn btn-primary', style: 'margin-top: 13px'%>
-      </div>
-    </div>
-    <div class="col-lg-2">
-      <div class=" col-lg-12">
-        <button  type="button" class='btn btn-primary' onclick="calculateBodyCompositions()" style='margin-top: 13px'>Calculate</button>
-      </div>
-    </div>
+
 
 <% end %>

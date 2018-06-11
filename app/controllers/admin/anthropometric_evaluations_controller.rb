@@ -33,6 +33,6 @@ class Admin::AnthropometricEvaluationsController < Admin::BaseController
 
   def evaluation_params
     params[:anthropometric_evaluation].permit(:fat_percentage, :fat_mass, :lean_mass, :abdomen, :waist, :hip, :arm, :weight, :height,
-                                              :bmi, :triceps, :subscapular, :thigh, :iliac_crest, :abdominal, :chest, :axilla)
+                                              :bmi, :triceps, :subscapular, :thigh, :iliac_crest, :abdominal, :chest, :axilla, :notes)
   end
 end
