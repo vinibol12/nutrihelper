@@ -1,0 +1,74 @@
+%h2.page-title
+  Evaluation for #{@user.full_name}
+= form_for @evaluation, url: admin_anthropometric_evaluations_path do |e|
+  .row
+    = hidden_field_tag :appointment_id, @appointment.id
+    .col.s12.m6.l4
+      %h5 Circumferences
+      %div
+        %label Abdomen
+        = e.number_field :abdomen, class: 'input-field', placeholder: 'cm'
+      %div
+        %label Waist
+        = e.number_field :waist,  placeholder: 'cm'
+      %div
+        %label Hips
+        = e.number_field :hip,  placeholder: 'cm'
+      %div
+        %label Arm
+        = e.number_field :arm,  placeholder: 'cm'
+      %h5 BMI
+      %div
+        %label Height
+        = e.number_field :height, placeholder: 'cm'
+      %div
+        %label Weight
+        = e.number_field :weight, placeholder: 'kg'
+    .col.s12.m6.l4
+      %h5 Skin Folds
+      .col-lg-12
+        %label.col-lg-12.evaluation-label Triceps
+        = e.number_field :triceps,  placeholder: 'mm'
+      %div
+        %label Subscapular
+        = e.number_field :subscapular,  placeholder: 'mm'
+      %div
+        %label Thigh
+        = e.number_field :thigh,  placeholder: 'mm'
+      %div
+        %label Abdominal
+        = e.number_field :abdominal, placeholder: 'mm'
+      %div
+        %label Iliac crest
+        = e.number_field :iliac_crest, placeholder: 'mm'
+      %div
+        %label Chest
+        = e.number_field :chest, placeholder: 'mm'
+      %div
+        %label Axilla
+        = e.number_field :axilla, placeholder: 'mm'
+    .col.s12.m6.l4
+      %div
+        %h5 Results
+        %div
+          %label BMI
+          = e.number_field :bmi,  step: :any
+      %div
+        %div
+          %label Lean Mass (kg)
+          = e.number_field :lean_mass,  step: :any
+      %div
+        %div
+          %label Body Fat (kg)
+          = e.number_field :fat_mass,  step: :any
+      %div
+        %div
+          %label Body Fat (%)
+          = e.number_field :fat_percentage,  step: :any
+      %div
+        %h5 Notes
+        = e.text_area :notes
+    %h5
+  .col-lg-2
+    .col-lg-12
+      = e.submit 'Save' , class:'btn btn-primary', style: 'margin-top: 13px'

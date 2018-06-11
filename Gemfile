@@ -27,9 +27,13 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Material Design
 gem 'materialize-sass', '0.100.2'
 
+# Haml engine and generator
+gem 'haml-rails', '~> 1.0'
 
+# Flagged for now
 # gem 'client_side_validations'
 
 gem 'devise'

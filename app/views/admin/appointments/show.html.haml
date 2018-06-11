@@ -1,0 +1,17 @@
+%h5
+  %strong
+    Appointment for
+    \#{@appointment.user.full_name}
+.row
+  %strong= @appointment.date_time.strftime('%a, %-d %b %Y at %H:%M')
+.row
+  = form_for @appointment, url: admin_appointment_path, method: :patch, class: 'col s12' do |f|
+    .input-field
+      = f.text_area :notes, class: 'materialize-textarea'
+      = f.label :notes
+    = f.submit 'Save Notes', class: :btn
+  %br/
+  = form_tag '/admin/anthropometric_evaluations/new', method: :get do
+    = hidden_field_tag :user_id, @appointment.user.id
+    = hidden_field_tag :appointment_id, @appointment.id
+    = submit_tag 'New Evaluation for this Client', class: 'btn btn-link'

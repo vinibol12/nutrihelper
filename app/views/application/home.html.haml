@@ -1,0 +1,9 @@
+%h1{:style => "text-align: center; font-size: 50px"} Welcome to Nutrihelper
+- unless current_user
+  .container.centered-page
+    = button_to 'LOGIN', new_user_session_path, method: :get, class: 'waves-effect waves-light btn-large centered-page--button'
+    = button_to 'SIGN UP',                                               |
+      new_user_registration_path,                                        |
+      method: :get,                                                      |
+      class: 'waves-effect waves-light btn-large centered-page--button', |
+      input_html: { style: 'color: #ffff;'}                              |

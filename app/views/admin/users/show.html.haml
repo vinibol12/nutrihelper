@@ -1,0 +1,23 @@
+.panel.panel-default
+  .panel-heading Client Details
+  .panel-body
+    %p
+      %strong First name:
+      = @user.first_name
+    %p
+      %strong Last name:
+      = @user.last_name
+    %p
+      %strong Date of birth:
+      = @user.date_of_birth
+    %p
+      %strong Gender:
+      = @user.gender.humanize
+    %p
+      %strong Email:
+      = @user.email
+= form_for(@appointment, url: admin_appointments_path) do |f|
+  = f.hidden_field :user_id
+  = f.submit 'New Appointment for this Client', class: 'btn btn-link'
+= link_to 'Edit', edit_admin_user_path(@user), class: 'btn btn-link'
+= link_to 'Delete', admin_user_path(@user), method: :delete, class: 'btn btn-danger'

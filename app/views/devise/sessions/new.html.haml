@@ -1,0 +1,20 @@
+.container
+  %h2 Log in
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .input-field
+      = f.label :email
+      %br/
+      = f.email_field :email, autofocus: true
+    .input-field
+      = f.label :password
+      %br/
+      = f.password_field :password, autocomplete: "off"
+    - if devise_mapping.rememberable?
+      .field
+        %label{:for => "user_remember_me"}
+          %input#user_remember_me{:checked => "checked", :name => "user[rememeber_me]", :type => "checkbox"}/
+          %span Remember me
+    %br/
+    .waves-effect.waves-light.btn.submit
+      = f.submit "Log in"
+  = render "devise/shared/links"
