@@ -1,7 +1,7 @@
 %h5
   %strong
     Appointment for
-    \#{@appointment.user.full_name}
+    = link_to @appointment.user.full_name, admin_user_path(@appointment.user)
 .row
   %strong= @appointment.date_time.strftime('%a, %-d %b %Y at %H:%M')
 .row

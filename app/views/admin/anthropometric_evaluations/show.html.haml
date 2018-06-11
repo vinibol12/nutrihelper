@@ -1,1 +1,7 @@
-%h2
+%h4
+  Evaluation for
+  = link_to @user.full_name, admin_user_path(@user)
+= form_for @evaluation, url: admin_anthropometric_evaluations_path do |e|
+  = render 'form', e: e
+  .col.s12.m6.l4= link_to 'Edit', edit_admin_anthropometric_evaluation_path(@evaluation), class: 'btn'
+

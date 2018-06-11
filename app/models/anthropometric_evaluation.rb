@@ -26,10 +26,12 @@
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  notes               :string
+#  user_id             :integer
 #
 
 class AnthropometricEvaluation < ApplicationRecord
-  belongs_to :appointment
+  belongs_to :appointment, dependent: :destroy
+  has_one :user
   has_one :bmi_measurement
   has_one :body_composition
   has_one :circumference_measurement

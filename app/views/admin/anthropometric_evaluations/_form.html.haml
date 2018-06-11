@@ -1,0 +1,67 @@
+.row
+  .col.s12.m6.l4
+    %h5 Circumferences
+    .input-field
+      = e.number_field :abdomen
+      %label Abdomen (cm)
+    .input-field
+      = e.number_field :waist
+      %label Waist (cm)
+    .input-field
+      = e.number_field :hip
+      %label Hips (cm)
+    .input-field
+      = e.number_field :arm
+      %label Arm (cm)
+    %h5 BMI
+    .input-field
+      = e.number_field :height
+      %label Height (cm)
+    .input-field
+      = e.number_field :weight
+      %label Weight
+  .col.s12.m6.l4
+    %h5 Skin Folds
+    .input-field
+      = e.number_field :triceps
+      %label Triceps (mm)
+    .input-field
+      = e.number_field :subscapular
+      %label Subscapular (mm)
+    .input-field
+      = e.number_field :thigh
+      %label Thigh (mm)
+    .input-field
+      = e.number_field :abdominal
+      %label Abdominal (mm)
+    .input-field
+      = e.number_field :iliac_crest
+      %label Iliac crest (mm)
+    .input-field
+      = e.number_field :chest
+      %label Chest (mm)
+    .input-field
+      = e.number_field :axilla
+      %label Axilla (mm)
+  .col.s12.m6.l4
+    %div
+      %h5 Results
+      .input-field
+        = e.number_field :bmi,  step: :any
+        %label BMI
+    %div
+      .input-field
+        = e.number_field :lean_mass,  step: :any
+        %label Lean Mass (kg)
+    %div
+      .input-field
+        = e.number_field :fat_mass,  step: :any
+        %label Body Fat (kg)
+    %div
+      .input-field
+        = e.number_field :fat_percentage,  step: :any
+        %label Body Fat (%)
+    %div
+      .input-field
+        = e.text_area :notes, class: 'materialize-textarea'
+        = e.label :notes

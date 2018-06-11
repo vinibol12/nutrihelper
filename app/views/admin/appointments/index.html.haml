@@ -1,26 +1,20 @@
 %p#notice= notice
-%h2
-  Appointments History #{@user.full_name}
-%table.table.table-striped.table-hover
+%h5
+  %strong Appointments History for #{@user.full_name}
+%table.table.striped
   %thead
     %tr.row
-      %th Date
-      %th Body Fat (%)
-      %th Body Fat (kg)
-      %th Lean Mass (kg)
-      %th BMI
-      %th Weight
-  %tbody
+      %th When Happened
+      %th Notes
+
+  %tbody  
     - @appointments.each do |appointment|
       - evaluation = appointment.anthropometric_evaluation
       %tr.row
-        %td= appointment.created_at.to_s(:weekday_and_day_of_year)
-        %td= evaluation.fat_percentage if evaluation
-        %td= evaluation.fat_mass if evaluation
-        %td= evaluation.lean_mass if evaluation
-        %td= evaluation.bmi if evaluation
-        %td= evaluation.weight if evaluation
+        %td= appointment.date_time
+        %td= appointment.notes
+        %td= link_to 'Go To Evaluation', admin_anthropometric_evaluation_path(evaluation) if evaluation
         %td
-          = button_to 'Delete', admin_appointment_path(appointment), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure? This will delete any Evaluations made during this appointment'}
-%br/
-= button_to 'Create Appointment for Client', admin_appointments_path, class: 'btn btn-primary', params:{ appointment: {user_id: @user.id }}
+          = button_to 'Delete', admin_appointment_path(appointment), method: :delete, class: 'btn red darken-2', data: { confirm: 'Are you sure? This will delete any Evaluations made during this appointment'}
+
+-#= button_to 'Create Appointment for Client', admin_appointments_path, class: 'btn btn-primary', params:{ appointment: {user_id: @user.id }}

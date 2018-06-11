@@ -40,7 +40,13 @@ class Admin::AppointmentsController < Admin::BaseController
   end
 
   def update
-    
+    @appointment = Appointment.find(params[:id])
+    if @appointment.update(notes: params[:appointment][:notes])
+      flash[:sucess] = 'Appointment Notes Saved'
+    else
+      flash[:error] = 'Notes could not be saved'
+    end
+    render :show
   end
 
   private

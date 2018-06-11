@@ -1,23 +1,21 @@
-.panel.panel-default
-  .panel-heading Client Details
-  .panel-body
-    %p
-      %strong First name:
-      = @user.first_name
-    %p
-      %strong Last name:
-      = @user.last_name
-    %p
-      %strong Date of birth:
-      = @user.date_of_birth
-    %p
-      %strong Gender:
-      = @user.gender.humanize
-    %p
-      %strong Email:
-      = @user.email
-= form_for(@appointment, url: admin_appointments_path) do |f|
-  = f.hidden_field :user_id
-  = f.submit 'New Appointment for this Client', class: 'btn btn-link'
-= link_to 'Edit', edit_admin_user_path(@user), class: 'btn btn-link'
-= link_to 'Delete', admin_user_path(@user), method: :delete, class: 'btn btn-danger'
+%h4 Client Details
+%p
+  %strong First name:
+  = @user.first_name
+%p
+  %strong Last name:
+  = @user.last_name
+%p
+  %strong Date of birth:
+  = @user.date_of_birth
+%p
+  %strong Gender:
+  = @user.gender.humanize
+%p
+  %strong Email:
+  = @user.email
+
+.row= link_to 'Start Appointment', new_admin_appointment_path(@user)
+.row= link_to 'Appointment History', admin_user_appointments_path(@user)
+.row= link_to 'Edit', edit_admin_user_path(@user), class: 'btn btn-link'
+.row= link_to 'Delete', admin_user_path(@user), method: :delete, class: 'btn red darken-2'
