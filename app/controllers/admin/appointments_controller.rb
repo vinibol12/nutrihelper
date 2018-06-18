@@ -13,8 +13,7 @@ class Admin::AppointmentsController < Admin::BaseController
   end
 
   def create
-    parse_date_time
-    @appointment = Appointment.new(user: user, date_time: @date_time, notes: appointment_params[:notes])
+    @appointment = Appointment.new(user: user, date_time: DateTime.now)
     if @appointment.save
       flash[:success] = 'New Appointment created'
       redirect_to admin_appointment_path(@appointment)
@@ -57,9 +56,5 @@ class Admin::AppointmentsController < Admin::BaseController
 
   def user
     @user ||= User.find appointment_params[:user_id]
-  end
-
-  def parse_date_time
-    @date_time = DateTime.parse(appointment_params[:date] + appointment_params[:time])
   end
 end

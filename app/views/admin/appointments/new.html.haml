@@ -1,14 +1,8 @@
 .container
   = form_for(@appointment, url: admin_appointments_path) do |f|
-    %h5 Start Appointnment
+    %h5 New Appointnment
     .input-field
-      = f.select :user_id, @users.collect { |p| [ p.full_name, p.id ] }, placeholder: 'Select a client', include_blank: true
+      = f.select :user_id, @users.collect { |p| [ p.full_name, p.id ] }, placeholder: 'Select a client', required: true, include_blank: true
       = f.label :client, for: 'appointment[user_id]'
-    .input-field
-      = label_tag :date
-      = text_field_tag :date, '', name: 'appointment[date]', class: :datepicker
-    .input-field
-      = text_field_tag :time, '', name: 'appointment[time]', class: :timepicker
-      = label_tag :time
     %div
       = f.submit 'Start Appointment', class: 'btn btn-link'

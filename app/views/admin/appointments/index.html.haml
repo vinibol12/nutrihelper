@@ -1,10 +1,12 @@
 %p#notice= notice
 %h5
-  %strong Appointments History for #{@user.full_name}
+  %strong
+    Appointments History for
+    = link_to @user.full_name, admin_user_path(@user)
 %table.table.striped
   %thead
     %tr.row
-      %th When Happened
+      %th Date/Time
       %th Notes
 
   %tbody  
@@ -12,6 +14,7 @@
       - evaluation = appointment.anthropometric_evaluation
       %tr.row
         %td= appointment.date_time
+        -#TODO Add show more/less
         %td= appointment.notes
         %td= link_to 'Go To Evaluation', admin_anthropometric_evaluation_path(evaluation) if evaluation
         %td
