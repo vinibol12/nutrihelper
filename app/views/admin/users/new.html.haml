@@ -1,1 +1,2 @@
-= render 'form', user: @user
+= form_for @user, url: new_admin_user_path, html: {class: 'form-horizontal col-lg-6'} do |f|
+  = render 'form', user: @user, f: f

@@ -30,7 +30,7 @@ class User < ApplicationRecord
 
   enum gender: { male: 0, female: 1 }
 
-  validates_uniqueness_of :email, message: 'There is already a patient registered with this email address'
+  validates_uniqueness_of :email
   validates_presence_of :first_name, :last_name, :date_of_birth, :gender, :email, :encrypted_password
 
   has_many :appointments

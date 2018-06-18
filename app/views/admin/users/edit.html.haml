@@ -1,5 +1,2 @@
-%h1 Editing User
-= render 'form', user: @user
-= link_to 'Show', @user
-|
-= link_to 'Back', users_path
+= form_for @user, url: admin_user_path, html: {class: 'form-horizontal col-lg-6'} do |f|
+  = render 'form', user: @user, f: f
