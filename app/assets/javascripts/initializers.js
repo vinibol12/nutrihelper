@@ -9,4 +9,5 @@ document.addEventListener('turbolinks:load', function() {
   //Initialize materialize selects
   $('select').material_select();
 
+  $(".button-collapse").sideNav();
 });
