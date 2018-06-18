@@ -1,67 +1,68 @@
 .row
   .col.s12.m6.l4
+    = hidden_field_tag :appointment_id, @appointment.id
     %h5 Circumferences
     .input-field
       = e.number_field :abdomen
-      %label Abdomen (cm)
+      %label{class: 'active'} Abdomen (cm)
     .input-field
       = e.number_field :waist
-      %label Waist (cm)
+      %label{class: 'active'} Waist (cm)
     .input-field
       = e.number_field :hip
-      %label Hips (cm)
+      %label{class: 'active'} Hips (cm)
     .input-field
       = e.number_field :arm
-      %label Arm (cm)
+      %label{class: 'active'} Arm (cm)
     %h5 BMI
     .input-field
       = e.number_field :height
-      %label Height (cm)
+      %label{class: 'active'} Height (cm)
     .input-field
       = e.number_field :weight
-      %label Weight
+      %label{class: 'active'} Weight
   .col.s12.m6.l4
     %h5 Skin Folds
     .input-field
       = e.number_field :triceps
-      %label Triceps (mm)
+      %label{class: 'active'} Triceps (mm)
     .input-field
       = e.number_field :subscapular
-      %label Subscapular (mm)
+      %label{class: 'active'} Subscapular (mm)
     .input-field
       = e.number_field :thigh
-      %label Thigh (mm)
+      %label{class: 'active'} Thigh (mm)
     .input-field
       = e.number_field :abdominal
-      %label Abdominal (mm)
+      %label{class: 'active'} Abdominal (mm)
     .input-field
       = e.number_field :iliac_crest
-      %label Iliac crest (mm)
+      %label{class: 'active'} Iliac crest (mm)
     .input-field
       = e.number_field :chest
-      %label Chest (mm)
+      %label{class: 'active'} Chest (mm)
     .input-field
       = e.number_field :axilla
-      %label Axilla (mm)
+      %label{class: 'active'} Axilla (mm)
   .col.s12.m6.l4
     %div
       %h5 Results
       .input-field
         = e.number_field :bmi,  step: :any
-        %label BMI
+        %label{class: 'active'} BMI
     %div
       .input-field
         = e.number_field :lean_mass,  step: :any
-        %label Lean Mass (kg)
+        %label{class: 'active'} Lean Mass (kg)
     %div
       .input-field
         = e.number_field :fat_mass,  step: :any
-        %label Body Fat (kg)
+        %label{class: 'active'} Body Fat (kg)
     %div
       .input-field
         = e.number_field :fat_percentage,  step: :any
-        %label Body Fat (%)
+        %label{class: 'active'} Body Fat (%)
     %div
       .input-field
         = e.text_area :notes, class: 'materialize-textarea'
-        = e.label :notes
+        = e.label :notes, class: 'active'

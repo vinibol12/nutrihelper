@@ -2,7 +2,7 @@
   Evaluation for
   = link_to @user.full_name, admin_user_path(@user)
 = form_for @evaluation, url: admin_anthropometric_evaluations_path do |e|
-  = render 'form', e: e
+  = render 'form', e: e, appointment: @apppointment
   .col.s12.m6.l4
     = e.submit 'Save' , class:'btn btn-primary', style: 'margin-top: 13px'
 

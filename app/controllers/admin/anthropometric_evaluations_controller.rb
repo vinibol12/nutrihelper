@@ -1,6 +1,7 @@
 class Admin::AnthropometricEvaluationsController < Admin::BaseController
 
-  before_action :load_evaluation, only: [:show, :edit]
+  before_action :load_evaluation, only: [:show, :edit, :update]
+  before_action :load_appointment, only: [:show, :edit, :update]
   before_action :load_user, only: [:show, :edit]
 
   def new
@@ -22,7 +23,21 @@ class Admin::AnthropometricEvaluationsController < Admin::BaseController
     end
   end
 
+  def update
+    if @evaluation.update(evaluation_params)
+      flash[:success] = 'Evaluation has been updated'
+      redirect_to admin_anthropometric_evaluation_path(@evaluation)
+    else
+      flash[:notice] = @evaluation.errors.full_messages.join(', ')
+      render :edit
+    end
+  end
+
   private
+
+  def load_appointment
+    @appointment = @evaluation.appointment
+  end
 
   def evaluation_params
     params[:anthropometric_evaluation].permit(:fat_percentage, :fat_mass, :lean_mass, :abdomen, :waist, :hip, :arm,
