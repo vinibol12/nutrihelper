@@ -7,38 +7,29 @@
 .row
   = form_for(resource , as: resource, url: registration_path(resource_name),html: {class: 'form-horizontal col-lg-6'}, validate: true)  do |f|
     .input-field
+      = f.text_field :first_name, class: 'form-control', rows:'3'
       %label Name
-      .col-lg-10
-        = f.text_field :first_name, class: 'form-control', rows:'3'
     .input-field
+      = f.text_field :last_name, class: 'form-control', rows:'3'
       %label Surname
-      .col-lg-10
-        = f.text_field :last_name, class: 'form-control', rows:'3'
     .input-field
+      = f.date_select :date_of_birth,  {start_year: 1920, end_year: Date.today.year, class: 'form-control', rows:'3', as: :date_of_birth}
       %label Date of Birth
-      .col-lg-10
-        = f.date_select :date_of_birth,  {start_year: 1920, end_year: Date.today.year, class: 'form-control', rows:'3', as: :date_of_birth}
     .input-field
+
+      = f.select :gender, [['Male', 'male'], ['Female', 'female']], rows:'3', include_blank: true, required: true
       %label Gender
-      .col-lg-10
-        .radio
-          = f.select :gender, [['Male', 'male'], ['Female', 'female']], rows:'3', include_blank: true, required: true
     .input-field
+      = f.email_field :email, class: 'form-control', rows:'3'
       %label Email
-      .col-lg-5
-        = f.email_field :email, class: 'form-control', rows:'3'
     .input-field
+      = f.password_field :password, class: 'form-control', rows:'3', autocomplete: "off"
       %label Password
-      .col-lg-5
-        = f.password_field :password, class: 'form-control', rows:'3', autocomplete: "off"
     .input-field
+      = f.password_field :password_confirmation, class: 'form-control', rows:'3', autocomplete: "off"
       %label Password onfirmation
-      .col-lg-5
-        = f.password_field :password_confirmation, class: 'form-control', rows:'3', autocomplete: "off"
     .input-field
       .col-lg-10.col-lg-offset-2
         %button.btn.btn-primary{:type => "submit"} Sign up
 .row
-  .col-lg-10
-    %p Already have an Account?
-    = button_to 'Sign in', new_user_session_path, method: :get, class: [:btn, 'btn btn-default']
+  = link_to 'Sign in', new_user_session_path
