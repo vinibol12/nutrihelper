@@ -17,7 +17,7 @@ function foldsValues() {
   var foldsList = [];
   for (var i = 0; i < skinFolds.length; i++) {
     var item = skinFolds[i];
-    var fieldValue = $(`[id$=${item}]`)[0].value;
+    var fieldValue = $("[id$=" + item + "]")[0].value;
     foldsList.push(parseInt(fieldValue))
   }
   return foldsList
