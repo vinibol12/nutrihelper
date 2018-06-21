@@ -4,6 +4,12 @@ class Admin::AnthropometricEvaluationsController < Admin::BaseController
   before_action :load_appointment, only: [:show, :edit, :update]
   before_action :load_user, only: [:show, :edit]
 
+
+  def index
+    @user = User.find(params[:user_id])
+    @evaluations = @user.evaluations
+  end
+
   def new
     @appointment = Appointment.find(params[:appointment_id])
     @user = @appointment.user

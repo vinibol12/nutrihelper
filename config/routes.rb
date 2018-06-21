@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :appointments, only: [:new, :destroy, :create, :edit, :update, :show]
-    resources :anthropometric_evaluations, only: [:new, :create, :edit, :update, :show, :update]
+    resources :anthropometric_evaluations, only: [:new, :create, :edit, :update, :show, :update, :index]
     resources :users do
       resources :appointments, only: [:index, :show]
     end

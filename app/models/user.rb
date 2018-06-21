@@ -34,6 +34,9 @@ class User < ApplicationRecord
   validates_presence_of :first_name, :last_name, :date_of_birth, :gender, :email, :encrypted_password
 
   has_many :appointments
+  has_many :anthropometric_evaluations
+
+  alias :evaluations :anthropometric_evaluations
 
   def full_name
     first_name + ' ' + last_name

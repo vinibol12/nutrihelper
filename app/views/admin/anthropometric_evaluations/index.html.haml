@@ -1,0 +1,25 @@
+%p#notice= notice
+%h5
+  Evaluations History for
+  = link_to @user.full_name, admin_user_path(@user)
+%table{class: 'responsive-table bordered'}
+  %thead
+    %tr
+      %th Evaluation Date
+      %th{class: 'col l6'} Results
+      %th{class: 'col l3'} Notes
+
+  %tbody
+    - @evaluations.each do |evaluation|
+      - results = evaluation.results
+      %tr
+        %td{colspan: 1}= link_to evaluation.date_time.to_s(:human_schedule), admin_anthropometric_evaluation_path(evaluation)
+        %td
+          - results.each do |name, value|
+            %div
+              #{name.to_s.gsub(/_/, ' ')}:
+              = value
+
+        %td{colspan: 5}= evaluation.notes
+        %td= button_to 'X', admin_anthropometric_evaluation_path(evaluation), method: :delete, class: 'btn red darken-2', data: { confirm: 'Are you sure? '}
+

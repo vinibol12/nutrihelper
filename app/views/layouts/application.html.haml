@@ -1,5 +1,5 @@
 !!!
-%html
+%html.main{class: 'condensed light'}
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Nutrihelper
@@ -28,7 +28,7 @@
         %ul#mobile-demo.side-nav
           = content_for :navbar
 
-    .container.main
+    .container
       .col-lg-12.content
         - [:notice, :error, :alert, :warning, :message, :success].each do |type|
           - if flash[type].present?

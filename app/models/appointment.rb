@@ -14,4 +14,6 @@ class Appointment < ApplicationRecord
   belongs_to :user
   has_one :anthropometric_evaluation
 
+  validates_presence_of :date_time
+
 end

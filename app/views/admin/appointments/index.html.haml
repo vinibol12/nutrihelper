@@ -3,20 +3,20 @@
   %strong
     Appointments History for
     = link_to @user.full_name, admin_user_path(@user)
-%table{class: 'responsive-table'}
+%table{class: 'responsive-table bordered'}
   %thead
-    %tr.row
-      %th Date/Time
-      %th Notes
+    %tr
+      %th{colspan: 1} Date/Time
+      %th{class: 'col l6'} Notes
+      %th{class: 'col l3'}
 
   %tbody  
     - @appointments.each do |appointment|
       - evaluation = appointment.anthropometric_evaluation
-      %tr.row
-        %td= appointment.date_time.to_s(:human_schedule)
+      %tr
+        %td{colspan: 1}= appointment.date_time.to_s(:human_schedule)
         -#TODO Add show more/less
-        %td= appointment.notes
-        %td= link_to 'Go To Evaluation', admin_anthropometric_evaluation_path(evaluation) if evaluation
-        %td
-          = button_to 'Delete', admin_appointment_path(appointment), method: :delete, class: 'btn red darken-2', data: { confirm: 'Are you sure? This will delete any Evaluations made during this appointment'}
+        %td{colspan: 5}= appointment.notes
+        %td{class: 'col l3'}= link_to 'Go To Evaluation', admin_anthropometric_evaluation_path(evaluation) if evaluation
+        %td= button_to 'X', admin_appointment_path(appointment), method: :delete, class: 'btn red darken-2', data: { confirm: 'Are you sure? This will delete any Evaluations made during this appointment'}
 

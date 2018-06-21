@@ -35,8 +35,13 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def destroy
-    @user.destroy
-    redirect_to admin_users_path, notice: 'User was successfully destroyed.'
+    if @user.admin
+      flash[:notice] = 'This user is an admin. So it cannot be destroyed. Please contact your website developer'
+      render :show
+    else
+      @user.destroy
+      redirect_to admin_users_path, notice: 'User was successfully destroyed.'
+    end
   end
 
   private

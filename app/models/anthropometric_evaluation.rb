@@ -43,4 +43,9 @@ class AnthropometricEvaluation < ApplicationRecord
 
 
 
+  delegate :date_time, to: :appointment
+
+  def results
+    attributes.slice('fat_percentage', 'fat_mass', 'lean_mass', 'weight')
+  end
 end
