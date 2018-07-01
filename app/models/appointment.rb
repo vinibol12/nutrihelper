@@ -12,7 +12,8 @@
 
 class Appointment < ApplicationRecord
   belongs_to :user
-  has_one :anthropometric_evaluation
+  has_one :anthropometric_evaluation, dependent: :destroy
+
 
   validates_presence_of :date_time
 

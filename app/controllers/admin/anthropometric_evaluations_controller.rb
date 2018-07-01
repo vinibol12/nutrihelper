@@ -1,8 +1,8 @@
 class Admin::AnthropometricEvaluationsController < Admin::BaseController
 
-  before_action :load_evaluation, only: [:show, :edit, :update]
+  before_action :load_evaluation, only: [:show, :edit, :update, :destroy]
   before_action :load_appointment, only: [:show, :edit, :update]
-  before_action :load_user, only: [:show, :edit]
+  before_action :load_user, only: [:show, :edit, :destroy]
 
 
   def index
@@ -18,7 +18,9 @@ class Admin::AnthropometricEvaluationsController < Admin::BaseController
 
   def create
     @appointment = Appointment.find(params[:appointment_id])
-    @evaluation = AnthropometricEvaluation.new(evaluation_params.merge(appointment_id: @appointment.id))
+    @evaluation = AnthropometricEvaluation.new(
+        evaluation_params.merge(appointment_id: @appointment.id, user: @appointment.user)
+    )
     @user = @evaluation.user
     if @evaluation.save
       flash[:success] = 'Saved Evaluation with success'
@@ -36,6 +38,15 @@ class Admin::AnthropometricEvaluationsController < Admin::BaseController
     else
       flash[:notice] = @evaluation.errors.full_messages.join(', ')
       render :edit
+    end
+  end
+
+  def destroy
+    if @evaluation.destroy
+      flash[:success] = 'Evaluation deleted with success'
+      redirect_to admin_anthropometric_evaluations_path(user_id: @user.id)
+    else
+      flash[:notice] = 'There was an error and evaluation could not be destroyed'
     end
   end
 

@@ -30,13 +30,12 @@
 #
 
 class AnthropometricEvaluation < ApplicationRecord
-  belongs_to :appointment, dependent: :destroy
-  has_one :user
+  belongs_to :appointment
+  belongs_to :user
   has_one :bmi_measurement
   has_one :body_composition
   has_one :circumference_measurement
   has_one :skin_fold_measurement
-  has_one :user, through: :appointment
 
   validates_presence_of :fat_percentage, :fat_mass, :lean_mass, :weight, :height,
                         :bmi, :triceps, :subscapular, :thigh, :iliac_crest, :abdominal, :chest, :axilla
