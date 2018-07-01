@@ -47,21 +47,21 @@
   .col.s12.m6.l4
     %div
       %h5 Results
-      .input-field
-        = e.number_field :bmi,  step: :any
+      .div
         %label{class: 'active'} BMI
+        = e.number_field :bmi,  step: :any
     %div
-      .input-field
-        = e.number_field :lean_mass,  step: :any
+      %div
         %label{class: 'active'} Lean Mass (kg)
+        = e.number_field :lean_mass,  step: :any
     %div
-      .input-field
-        = e.number_field :fat_mass,  step: :any
+      %div
         %label{class: 'active'} Body Fat (kg)
+        = e.number_field :fat_mass,  step: :any
     %div
-      .input-field
-        = e.number_field :fat_percentage,  step: :any
+      %div
         %label{class: 'active'} Body Fat (%)
+        = e.number_field :fat_percentage,  step: :any
     %div
       .input-field
         = e.text_area :notes, class: 'materialize-textarea'

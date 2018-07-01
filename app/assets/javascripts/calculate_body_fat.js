@@ -97,10 +97,10 @@ function calculateBodyCompositions() {
 }
 
 $(document).ready(function(){
- $('#new_anthropometric_evaluation').change(function(){
+ $('#new_anthropometric_evaluation, .edit_anthropometric_evaluation').change(function(){
    calculateBodyCompositions();
  })
-})
+});
 
 
 
