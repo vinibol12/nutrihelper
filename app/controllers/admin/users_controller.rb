@@ -35,7 +35,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def destroy
-    if @user.admin
+    if @user.admin?
       flash[:notice] = 'This user is an admin. So it cannot be destroyed. Please contact your website developer'
       render :show
     else
