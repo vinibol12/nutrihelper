@@ -1,0 +1,20 @@
+postgres:
+  image: postgres:9.4.5
+  environment:
+    POSTGRES_USER: nutrihelper
+    POSTGRES_PASSWORD: easypassword
+  ports:
+    - '5432:5432'
+  volumes:
+    - nutrihelper-postgres:/var/lib/postgresql/data
+
+nutrihelper:
+  build: .
+  links:
+    - postgres
+  volumes:
+    - .:/nutrihelper
+  ports:
+    - '3000:3000'
+  env_file:
+    - .nutrihelper.env
