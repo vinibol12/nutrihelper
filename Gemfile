@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Material Design
-gem 'materialize-sass', '0.100.2'
+gem 'materialize-sass', '1.0.0'
 
 # Haml engine and generator
 gem 'haml-rails', '~> 1.0'
